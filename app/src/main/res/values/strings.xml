@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">tic tac toe</string>
+    <string name="play_with_enemy">لعب مع صاحبك</string>
+    <string name="play_with_kabour">لعب مع كبور</string>
+</resources>

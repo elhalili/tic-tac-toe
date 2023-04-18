@@ -1,0 +1,164 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="gameViewModel"
+            type="com.elhalili.tictactoe.viewmodel.GameViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/plan_one"
+        tools:context=".view.GameActivity">
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.2" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.8" />
+
+        <androidx.gridlayout.widget.GridLayout
+            android:id="@+id/gridLayout2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/wood"
+            app:columnCount="3"
+            app:layout_constraintBottom_toTopOf="@+id/guideline2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline"
+            app:rowCount="3">
+
+
+            <Button
+                android:background="@drawable/cell_shape"
+                android:text='@{gameViewModel.cells["00"].getValue()}'
+                android:onClick="@{() -> gameViewModel.onClickedCellAt(0, 0)}"
+                android:textSize="64dp"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                app:layout_rowWeight="1" />
+
+            <Button
+                android:background="@drawable/cell_shape"
+                android:text='@{gameViewModel.cells["01"].getValue()}'
+                android:onClick="@{() -> gameViewModel.onClickedCellAt(0, 1)}"
+                android:textSize="64dp"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                app:layout_rowWeight="1" />
+
+            <Button
+                android:background="@drawable/cell_shape"
+                android:text='@{gameViewModel.cells["02"].getValue()}'
+                android:onClick="@{() -> gameViewModel.onClickedCellAt(0, 2)}"
+                android:textSize="64dp"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                app:layout_rowWeight="1" />
+
+            <Button
+                android:background="@drawable/cell_shape"
+                android:text='@{gameViewModel.cells["10"].getValue()}'
+                android:onClick="@{() -> gameViewModel.onClickedCellAt(1, 0)}"
+                android:textSize="64dp"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                app:layout_rowWeight="1" />
+
+            <Button
+                android:background="@drawable/cell_shape"
+                android:text='@{gameViewModel.cells["11"].getValue()}'
+                android:onClick="@{() -> gameViewModel.onClickedCellAt(1, 1)}"
+                android:textSize="64dp"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                app:layout_rowWeight="1" />
+
+            <Button
+                android:background="@drawable/cell_shape"
+                android:text='@{gameViewModel.cells["12"].getValue()}'
+                android:onClick="@{() -> gameViewModel.onClickedCellAt(1, 2)}"
+                android:textSize="64dp"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                app:layout_rowWeight="1" />
+
+            <Button
+                android:background="@drawable/cell_shape"
+                android:text='@{gameViewModel.cells["20"].getValue()}'
+                android:onClick="@{() -> gameViewModel.onClickedCellAt(2, 0)}"
+                android:textSize="64dp"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                app:layout_rowWeight="1" />
+
+            <Button
+                android:background="@drawable/cell_shape"
+                android:text='@{gameViewModel.cells["21"].getValue()}'
+                android:onClick="@{() -> gameViewModel.onClickedCellAt(2, 1)}"
+                android:textSize="64dp"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                app:layout_rowWeight="1" />
+
+            <Button
+                android:background="@drawable/cell_shape"
+                android:text='@{gameViewModel.cells["22"].getValue()}'
+                android:onClick="@{() -> gameViewModel.onClickedCellAt(2, 2)}"
+                android:textSize="64dp"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill"
+                app:layout_rowWeight="1" />
+
+        </androidx.gridlayout.widget.GridLayout>
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/phoneOwner_imageView"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="24dp"
+            android:clipToOutline="true"
+            android:src="@drawable/profil_avatar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline2"
+            app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
+            app:strokeColor="@color/black"
+            app:strokeWidth="10dp"
+            android:padding="5dp" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/opponent_imageView"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginEnd="24dp"
+            android:clipToOutline="true"
+            android:padding="5dp"
+            android:src="@drawable/profil_avatar"
+            app:layout_constraintBottom_toTopOf="@+id/guideline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
+            app:strokeColor="@color/black"
+            app:strokeWidth="10dp" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
